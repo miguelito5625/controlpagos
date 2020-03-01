@@ -1,0 +1,55 @@
+
+
+<div class="card mr-auto ml-auto mb-3">
+    <div class="card-header font-weight-bold">
+        Registrar Cliente
+      </div>
+      <div class="card-body">
+
+        <form [formGroup]="formularioCliente" (submit)="guardarCliente(this.formularioCliente.value)">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Nombres</label>
+                <input type="text" class="form-control" id="inputEmail4" formControlName="nombres">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Apellidos</label>
+                <input type="text" class="form-control" id="inputPassword4" formControlName="apellidos">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Direccion</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="" formControlName="direccion">
+            </div>
+            <!-- <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div> -->
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Telefono</label>
+                <input type="text" class="form-control" id="inputCity" formControlName="telefono">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">Sexo</label>
+                <select id="inputState" class="form-control" formControlName="genero">
+                  <option value="" selected>Selecione...</option>
+                  <option>Hombre</option>
+                  <option>Mujer</option>
+                </select>
+              </div>
+              <!-- <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div> -->
+            </div>
+            
+
+            <div class="d-flex flex-row-reverse">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+          </form>
+
+      </div>
+</div>
