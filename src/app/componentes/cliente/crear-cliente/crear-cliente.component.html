@@ -9,17 +9,17 @@
         <form [formGroup]="formularioCliente" (submit)="guardarCliente(this.formularioCliente.value)">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputEmail4">Nombres</label>
-                <input type="text" class="form-control" id="inputEmail4" formControlName="nombres">
+                <label for="idNombres">Nombres</label>
+                <input type="text" class="form-control" id="idNombres" formControlName="nombres">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">Apellidos</label>
-                <input type="text" class="form-control" id="inputPassword4" formControlName="apellidos">
+                <label for="idApellidos">Apellidos</label>
+                <input type="text" class="form-control" id="idApellidos" formControlName="apellidos">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputAddress">Direccion</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="" formControlName="direccion">
+              <label for="idDireccion">Direccion</label>
+              <input type="text" class="form-control" id="idDireccion" placeholder="" formControlName="direccion">
             </div>
             <!-- <div class="form-group">
               <label for="inputAddress2">Address 2</label>
@@ -27,12 +27,12 @@
             </div> -->
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputCity">Telefono</label>
-                <input type="text" class="form-control" id="inputCity" formControlName="telefono">
+                <label for="idTelefono">Telefono</label>
+                <input type="text" class="form-control" id="idTelefono" formControlName="telefono">
               </div>
               <div class="form-group col-md-4">
-                <label for="inputState">Sexo</label>
-                <select id="inputState" class="form-control" formControlName="genero">
+                <label for="idSexo">Sexo</label>
+                <select id="idSexo" class="form-control" formControlName="sexo">
                   <option value="" selected>Selecione...</option>
                   <option>Hombre</option>
                   <option>Mujer</option>

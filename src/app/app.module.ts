@@ -11,6 +11,12 @@ import { MenuModuloClienteComponent } from './componentes/cliente/menu-modulo-cl
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +30,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

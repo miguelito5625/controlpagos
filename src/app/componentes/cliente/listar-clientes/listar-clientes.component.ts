@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
+import { Cliente } from 'src/app/clases/cliente/cliente';
 
 @Component({
   selector: 'app-listar-clientes',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarClientesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private servicioCliente: ClienteService
+  ) { }
 
   ngOnInit(): void {
+    this.cargarClientes();
+  }
+
+  clientes: Cliente[];
+
+  cargarClientes(){
+    this.servicioCliente.obtenerClientes().subscribe(data => {
+      this.clientes = [];
+        data.forEach(element => {
+          let x = element.payload.doc.data();
+          x["uid"] = element.payload.doc.id;
+          this.clientes.push(x as Cliente);
+        });
+      console.log(this.clientes);
+    });
   }
 
 }
