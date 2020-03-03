@@ -1,0 +1,53 @@
+<div class="card mr-auto ml-auto mb-3">
+    <div class="card-header font-weight-bold">
+        Modificar Cliente
+      </div>
+      <div class="card-body">
+
+        <form [formGroup]="formularioCliente" (submit)="actualizarCliente()">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="idNombres">Nombres</label>
+                <input type="text" class="form-control" id="idNombres" formControlName="nombres">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="idApellidos">Apellidos</label>
+                <input type="text" class="form-control" id="idApellidos" formControlName="apellidos">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="idDireccion">Direccion</label>
+              <input type="text" class="form-control" id="idDireccion" placeholder="" formControlName="direccion">
+            </div>
+            <!-- <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div> -->
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="idTelefono">Telefono</label>
+                <input type="text" class="form-control" id="idTelefono" formControlName="telefono">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="idSexo">Sexo</label>
+                <select id="idSexo" class="form-control" formControlName="sexo">
+                  <option value="" selected>Selecione...</option>
+                  <option>Hombre</option>
+                  <option>Mujer</option>
+                </select>
+              </div>
+              <!-- <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div> -->
+            </div>
+            
+
+            <div class="d-flex flex-row-reverse">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+          </form>
+
+      </div>
+</div>

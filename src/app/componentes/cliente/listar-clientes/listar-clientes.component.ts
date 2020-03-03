@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
 import { Subject } from 'rxjs';
 import { Cliente } from 'src/app/clases/cliente/cliente';
+import { Router } from '@angular/router';
+import Responsive from 'datatables.net-responsive';
+
 
 declare var $: any;
 
@@ -20,13 +23,18 @@ export class ListarClientesComponent implements OnInit {
   dtTrigger: Subject<Cliente> = new Subject();
 
   constructor(
-    private servicioCliente: ClienteService
+    private servicioCliente: ClienteService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      responsive: true,
+      responsive: {
+        details: {
+            renderer: Responsive.renderer.listHiddenNodes()
+        }
+    },
       // select: true,
       language: {
         "url": "/assets/datatables/spanish.json"
@@ -87,7 +95,11 @@ export class ListarClientesComponent implements OnInit {
   borrarCliente(cliente){
     this.servicioCliente.borrarCliente(cliente.uid).then(
       success => {
-        this.ngOnInit();
+        console.log('borrado');
+        
+        setTimeout(() => {
+          this.ngOnInit();
+        }, 500);
       },
       error => {
       }
@@ -95,8 +107,9 @@ export class ListarClientesComponent implements OnInit {
   }
 
   editarCliente(cliente){
-    console.log(cliente);
-    
+    // console.log(cliente);
+    this.servicioCliente.clienteAEditar = cliente;
+    this.router.navigate(['/clientes/editar-cliente']);
   }
 
 }

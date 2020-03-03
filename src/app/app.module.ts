@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from "@angular/common/http";
 
 import { DataTablesModule } from 'angular-datatables';
+import { EditarClienteComponent } from './componentes/cliente/editar-cliente/editar-cliente.component';
 
 
 
@@ -29,7 +30,8 @@ import { DataTablesModule } from 'angular-datatables';
     ClienteComponent,
     CrearClienteComponent,
     ListarClientesComponent,
-    MenuModuloClienteComponent
+    MenuModuloClienteComponent,
+    EditarClienteComponent
   ],
   imports: [
     BrowserModule,
