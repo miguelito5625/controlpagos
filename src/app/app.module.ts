@@ -16,6 +16,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 
+import { HttpClientModule } from "@angular/common/http";
+
+import { DataTablesModule } from 'angular-datatables';
+
 
 
 @NgModule({
@@ -33,6 +37,8 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    HttpClientModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
