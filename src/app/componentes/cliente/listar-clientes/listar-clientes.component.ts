@@ -14,7 +14,7 @@ export class ListarClientesComponent implements OnInit {
 
   // dtOptions: DataTables.Settings = {};
   dtOptions: any= {};
-  persons: Cliente[] = [];
+  // persons: Cliente[] = [];
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
   dtTrigger: Subject<Cliente> = new Subject();
@@ -70,8 +70,9 @@ export class ListarClientesComponent implements OnInit {
         this.clientes.push(x as Cliente);
       });
       $('#idTablaClientes').DataTable().destroy();
-      this.persons = this.clientes;
-      this.dtTrigger.next();
+      setTimeout(() => {
+        this.dtTrigger.next();
+      }, 300);
       unsub.unsubscribe();
       console.log(this.clientes);
       
@@ -84,8 +85,13 @@ export class ListarClientesComponent implements OnInit {
   // }
 
   borrarCliente(cliente){
-    console.log(cliente);
-    
+    this.servicioCliente.borrarCliente(cliente.uid).then(
+      success => {
+        this.ngOnInit();
+      },
+      error => {
+      }
+    );
   }
 
   editarCliente(cliente){

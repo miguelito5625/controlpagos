@@ -32,4 +32,21 @@ export class ClienteService {
     return this.firestore.collection("clientes").snapshotChanges();
   }
 
+  borrarCliente(id) {
+    this.servicioSwal.swalCargando();
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection("clientes")
+        .doc(id)
+        .delete()
+        .then(res => { 
+          this.servicioSwal.operacionExitosa('Cliente eliminado'); 
+          resolve(res); 
+        }, err => {
+          this.servicioSwal.mensajeError('Ocurrio un error');
+          reject(err);
+        });
+    });
+ }
+
 }
