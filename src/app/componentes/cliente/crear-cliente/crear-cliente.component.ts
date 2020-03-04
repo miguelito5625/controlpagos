@@ -34,8 +34,18 @@ export class CrearClienteComponent implements OnInit {
 
     if (this.formularioCliente.valid) {
 
-      console.log(formulario);
-      this.servicioCliente.crearCliente(formulario).then(
+      let cliente = {
+        nombres: this.formularioCliente.controls.nombres.value,
+        apellidos: this.formularioCliente.controls.apellidos.value,
+        direccion: this.formularioCliente.controls.direccion.value,
+        telefono: this.formularioCliente.controls.telefono.value,
+        sexo: this.formularioCliente.controls.sexo.value,
+        createdAt: Date(),
+        updatedAt: Date()
+      }
+
+      // console.log(formulario);
+      this.servicioCliente.crearCliente(cliente).then(
         success => {
           this.formularioCliente.reset();
           $('.form-control').removeClass('is-valid');

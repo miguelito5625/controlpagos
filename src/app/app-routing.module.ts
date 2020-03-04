@@ -6,6 +6,9 @@ import { ListarClientesComponent } from './componentes/cliente/listar-clientes/l
 import { CrearClienteComponent } from './componentes/cliente/crear-cliente/crear-cliente.component';
 import { MenuModuloClienteComponent } from './componentes/cliente/menu-modulo-cliente/menu-modulo-cliente.component';
 import { EditarClienteComponent } from './componentes/cliente/editar-cliente/editar-cliente.component';
+import { PagosComponent } from './componentes/pagos/pagos.component';
+import { GenerarPagoComponent } from './componentes/pagos/generar-pago/generar-pago.component';
+import { ConsultarPagosComponent } from './componentes/pagos/consultar-pagos/consultar-pagos.component';
 
 
 const routes: Routes = [
@@ -32,6 +35,20 @@ const routes: Routes = [
       {
         path: 'editar-cliente',
         component: EditarClienteComponent
+      }
+    ]
+  },
+  {
+    path: 'pagos',
+    component: PagosComponent,
+    children: [
+      {
+        path: 'generar-pago',
+        component: GenerarPagoComponent
+      },
+      {
+        path: 'consultar-pagos',
+        component: ConsultarPagosComponent
       }
     ]
   }

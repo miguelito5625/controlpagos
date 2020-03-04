@@ -23,18 +23,19 @@
 
         <div class="col-sm-12 col-md-6 col-lg-4"  *ngFor="let modulo of listaModulos">
 
-            <div class="card mr-auto ml-auto mb-2" style="width: 18rem;">
+            <div class="card text-white bg-dark mr-auto ml-auto mb-3" style="width: 18rem;">
                 <img src="{{modulo.imagen}}" class="card-img-top"
                     alt="usuarios">
-                <div class="card-body">
-                    <h5 class="card-title">{{modulo.titulo}}</h5>
+                <div class="card-body" style="height: 110px;">
+                    <h5 class="card-title font-weight-bold">{{modulo.titulo}}</h5>
                     <p class="card-text">{{modulo.descripcion}}</p>
 
-                    <div class="d-flex flex-row-reverse">
-                        <a routerLink="{{modulo.urlModulo}}" class="btn btn-primary">Acceder</a>
-                    </div>
-
                 </div>
+                <div class="card-footer">
+                    <div class="d-flex flex-row-reverse">
+                        <a routerLink="{{modulo.urlModulo}}" class="btn btn-outline-light btn-lg btn-block">Acceder</a>
+                    </div>
+                  </div>
             </div>
 
         </div>

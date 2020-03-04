@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ClienteService } from 'src/app/servicios/cliente/cliente.service';
 import { Subject } from 'rxjs';
 import { Cliente } from 'src/app/clases/cliente/cliente';
@@ -13,7 +13,7 @@ declare var $: any;
   templateUrl: './listar-clientes.component.html',
   styleUrls: ['./listar-clientes.component.css']
 })
-export class ListarClientesComponent implements OnInit {
+export class ListarClientesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // dtOptions: DataTables.Settings = {};
   dtOptions: any= {};
@@ -59,18 +59,24 @@ export class ListarClientesComponent implements OnInit {
       // }
     };
 
-    this.cargarClientes();
+    // this.cargarClientes();
 
   }
 
-  // ngOnDestroy() {
-  //   this.dtTrigger.unsubscribe();
-  // }
+  ngAfterViewInit(){
+    this.cargarClientes();
+  }
+
+  ngOnDestroy() {
+    this.dtTrigger.unsubscribe();
+    this.promesaCargaClientes.unsubscribe();
+  }
 
   clientes: Cliente[];
 
+  promesaCargaClientes:any;
   cargarClientes() {
-    let unsub = this.servicioCliente.obtenerClientes().subscribe(data => {
+    this.promesaCargaClientes = this.servicioCliente.obtenerClientes().subscribe(data => {
       this.clientes = [];
       data.forEach(element => {
         let x = element.payload.doc.data();
@@ -81,8 +87,6 @@ export class ListarClientesComponent implements OnInit {
       setTimeout(() => {
         this.dtTrigger.next();
       }, 300);
-      unsub.unsubscribe();
-      console.log(this.clientes);
       
     });
 
@@ -95,11 +99,11 @@ export class ListarClientesComponent implements OnInit {
   borrarCliente(cliente){
     this.servicioCliente.borrarCliente(cliente.uid).then(
       success => {
-        console.log('borrado');
-        
-        setTimeout(() => {
-          this.ngOnInit();
-        }, 500);
+        console.log('borrado');        
+        // setTimeout(() => {
+        //   // this.ngOnInit();
+        //   this.cargarClientes();
+        // }, 500);
       },
       error => {
       }

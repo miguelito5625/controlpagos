@@ -12,6 +12,7 @@ export class Sweetalert2Service {
       title: 'Procesando',
       html: 'Por favor, espere...',
       timerProgressBar: true,
+      allowOutsideClick: false,
       onBeforeOpen: () => {
         Swal.showLoading()
         

@@ -20,6 +20,9 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { DataTablesModule } from 'angular-datatables';
 import { EditarClienteComponent } from './componentes/cliente/editar-cliente/editar-cliente.component';
+import { PagosComponent } from './componentes/pagos/pagos.component';
+import { GenerarPagoComponent } from './componentes/pagos/generar-pago/generar-pago.component';
+import { ConsultarPagosComponent } from './componentes/pagos/consultar-pagos/consultar-pagos.component';
 
 
 
@@ -31,7 +34,10 @@ import { EditarClienteComponent } from './componentes/cliente/editar-cliente/edi
     CrearClienteComponent,
     ListarClientesComponent,
     MenuModuloClienteComponent,
-    EditarClienteComponent
+    EditarClienteComponent,
+    PagosComponent,
+    GenerarPagoComponent,
+    ConsultarPagosComponent
   ],
   imports: [
     BrowserModule,

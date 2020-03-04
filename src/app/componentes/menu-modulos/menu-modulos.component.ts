@@ -18,6 +18,12 @@ export class MenuModulosComponent implements OnInit {
       descripcion: 'Modulo para la gestion de clientes',
       imagen: '/assets/imagenes/menus/principal/modulo-clientes.png',
       urlModulo: '/clientes'
+    },
+    {
+      titulo: 'Pagos',
+      descripcion: 'Modulo para la gestion de los pagos',
+      imagen: '/assets/imagenes/menus/principal/modulo-pagos.png',
+      urlModulo: '/pagos'
     }
   ]
 

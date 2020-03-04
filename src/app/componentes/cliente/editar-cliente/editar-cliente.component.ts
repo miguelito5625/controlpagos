@@ -37,7 +37,9 @@ export class EditarClienteComponent implements OnInit {
       apellidos: this.formularioCliente.controls.apellidos.value,
       direccion: this.formularioCliente.controls.direccion.value,
       telefono: this.formularioCliente.controls.telefono.value,
-      sexo: this.formularioCliente.controls.sexo.value
+      sexo: this.formularioCliente.controls.sexo.value,
+      createdAt: this.cliente.createdAt,
+      updatedAt: Date()
     }
     
     this.servicioCliente.editarCliente(this.cliente.uid, data).then(
@@ -45,7 +47,7 @@ export class EditarClienteComponent implements OnInit {
         setTimeout(() => {
           this.servicioCliente.clienteAEditar = new Cliente();
           this.router.navigate(['/clientes/listar-clientes']);
-        }, 500);
+        }, 300);
         
       },
       error => {

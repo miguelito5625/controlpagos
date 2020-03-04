@@ -5,4 +5,6 @@ export class Cliente {
     direccion: string;
     telefono: string;
     sexo: string;
+    createdAt: string;
+    updatedAt: string;
 }
