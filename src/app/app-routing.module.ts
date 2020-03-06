@@ -9,6 +9,7 @@ import { EditarClienteComponent } from './componentes/cliente/editar-cliente/edi
 import { PagosComponent } from './componentes/pagos/pagos.component';
 import { GenerarPagoComponent } from './componentes/pagos/generar-pago/generar-pago.component';
 import { ConsultarPagosComponent } from './componentes/pagos/consultar-pagos/consultar-pagos.component';
+import { MenuModuloPagosComponent } from './componentes/pagos/menu-modulo-pagos/menu-modulo-pagos.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'pagos',
     component: PagosComponent,
     children: [
+      {
+        path: '',
+        component: MenuModuloPagosComponent
+      },
       {
         path: 'generar-pago',
         component: GenerarPagoComponent

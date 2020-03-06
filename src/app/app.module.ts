@@ -23,6 +23,7 @@ import { EditarClienteComponent } from './componentes/cliente/editar-cliente/edi
 import { PagosComponent } from './componentes/pagos/pagos.component';
 import { GenerarPagoComponent } from './componentes/pagos/generar-pago/generar-pago.component';
 import { ConsultarPagosComponent } from './componentes/pagos/consultar-pagos/consultar-pagos.component';
+import { MenuModuloPagosComponent } from './componentes/pagos/menu-modulo-pagos/menu-modulo-pagos.component';
 
 
 
@@ -37,7 +38,8 @@ import { ConsultarPagosComponent } from './componentes/pagos/consultar-pagos/con
     EditarClienteComponent,
     PagosComponent,
     GenerarPagoComponent,
-    ConsultarPagosComponent
+    ConsultarPagosComponent,
+    MenuModuloPagosComponent
   ],
   imports: [
     BrowserModule,
