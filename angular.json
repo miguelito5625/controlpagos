@@ -30,6 +30,7 @@
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css",
               "node_modules/datatables.net-select-dt/css/select.dataTables.css",
+              "node_modules/bootstrap-select/dist/css/bootstrap-select.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -40,7 +41,9 @@
               "node_modules/sweetalert2/dist/sweetalert2.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
-              "node_modules/datatables.net-select/js/dataTables.select.js"
+              "node_modules/datatables.net-select/js/dataTables.select.js",
+              "node_modules/bootstrap-select/dist/js/bootstrap-select.js",
+              "node_modules/bootstrap-select/dist/js/defaults-es_ES.js"
             ]
           },
           "configurations": {

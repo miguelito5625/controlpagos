@@ -25,6 +25,8 @@ import { GenerarPagoComponent } from './componentes/pagos/generar-pago/generar-p
 import { ConsultarPagosComponent } from './componentes/pagos/consultar-pagos/consultar-pagos.component';
 import { MenuModuloPagosComponent } from './componentes/pagos/menu-modulo-pagos/menu-modulo-pagos.component';
 
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { MenuModuloPagosComponent } from './componentes/pagos/menu-modulo-pagos/
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

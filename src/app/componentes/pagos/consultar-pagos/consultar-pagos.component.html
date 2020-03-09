@@ -1,1 +1,43 @@
 <p>consultar-pagos works!</p>
+
+<div class="col-sm-12 col-md-12 col-lg-6 mr-auto ml-auto mb-4">
+    <label for="idSelectClientes">Clientes</label>
+    <div class="input-group">
+        <select id="idSelectClientes" class="form-control selectpicker" data-style="btn-dark" data-live-search="true"
+            [formControl]="clienteSelect" (change)="onChangeCliente()">
+            <option *ngFor="let cliente of clientes" value="{{cliente.uid}}">{{cliente.nombres}} {{cliente.apellidos}}
+            </option>
+        </select>
+        <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
+        </div>
+    </div>
+</div>
+
+<table class="table table-responsive-sm table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha pago</th>
+            <th scope="col">Meses pagados</th>
+            <th scope="col">Total pagado</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr
+            *ngFor="let pago of pagos | paginate: { currentPage: currentPage, itemsPerPage: itemsPerPage };  let i=index">
+            <th scope="row">{{ itemsPerPage * (currentPage - 1) + i + 1 }}</th>
+            <td>{{formatearFecha(pago.fechaPago)}}</td>
+            <td>{{pago.mesesPagados}}</td>
+            <td>{{pago.totalPagado}}</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="float-sm-left float-md-left float-lg-right">
+    <pagination-controls (pageChange)="currentPage = $event" responsive="true"
+        previousLabel="Anterior" nextLabel="Siguiente">
+    </pagination-controls>
+</div>
